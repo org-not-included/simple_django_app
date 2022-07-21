@@ -28,4 +28,3 @@ python3 manage.py migrate
 
 # Start server
 python3 manage.py runserver
-
