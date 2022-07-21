@@ -26,5 +26,8 @@ django-admin startproject simple_app .
 # Initialize DB storage
 python3 manage.py migrate
 
+# Create user
+python3 manage.py createsuperuser
+
 # Start server
 python3 manage.py runserver
