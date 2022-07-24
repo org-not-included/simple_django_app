@@ -8,6 +8,6 @@ git clone https://github.com/org-not-included/simple_django_app
 cd simple_django_app
 source setup.sh
 ```
-2. In your web-browser, go to http://127.0.0.1:8000/admin/.
+2. In your web-browser, go to http://127.0.0.1:7000/admin/.
 3. Sign in with credentials used in `setup.sh`. 
 4. Build it yourself, after watching the 30 minute video.
