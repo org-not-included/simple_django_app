@@ -10,3 +10,6 @@ def my_app_list_view(request):
     }
     return render(request, "myapp/index.html", context)
 
+
+def home_page_view(request):
+    return render(request, 'home_page/index.html')
