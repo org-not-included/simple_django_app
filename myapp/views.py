@@ -12,4 +12,8 @@ def my_app_list_view(request):
 
 
 def home_page_view(request):
-    return render(request, 'home_page/index.html')
+
+    context = {
+        "admin_page": f"{ request.scheme }://{ request.META['HTTP_HOST'] }/admin",
+    }
+    return render(request, 'home_page/index.html', context)
