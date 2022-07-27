@@ -26,7 +26,7 @@ SECRET_KEY = '31=_))ek7048q@#+stu)p50f#02cxv5i3d5&vezm#v6v$db=zi'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "3.16.112.154",
+    "18.219.94.152",
     "0.0.0.0",
     "127.0.0.1",
     "notincluded.org",
