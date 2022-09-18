@@ -28,6 +28,6 @@ python3 manage.py migrate
 
 # Create user
 python3 manage.py createsuperuser
-
+export SECRET_KEY="mike_is_not_a_good_oassword_choose_something_else"
 # Start server
 python3 manage.py runserver 0.0.0.0:4030

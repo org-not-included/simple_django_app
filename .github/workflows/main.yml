@@ -10,6 +10,7 @@ jobs:
       SSH_PRIVATE_KEY: ${{secrets.SSH_KEY}}
       SSH_KNOWN_HOSTS: ${{secrets.KNOWN_HOSTS}}
       SSH_KEY_PATH: ${{ github.workspace }}/notincluded.org.pem
+      SECRET_KEY: ${{secrets.SECRET_KEY}}
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -24,7 +25,7 @@ jobs:
     - name: Deploy Updates to Website
       shell: bash
       run: |
-        cat <<'EOT' | ssh -T -i $SSH_KEY_PATH ubuntu@ec2-3-137-87-165.us-east-2.compute.amazonaws.com  /bin/bash
+        cat <<'EOT' | ssh -T -i $SSH_KEY_PATH ubuntu@ec2-3-137-87-165.us-east-2.compute.amazonaws.com SECRET_KEY="SECRET_KEY" /bin/bash
         cd simple_django_app/
         # Kill existing process
         sleep 2
@@ -34,6 +35,7 @@ jobs:
         git stash
         echo "Running git pull:"
         git pull
+        export SECRET_KEY="$SECRET_KEY"
         echo "Running setup/run_server.sh:"
         source setup/run_server.sh & disown
         EOT
