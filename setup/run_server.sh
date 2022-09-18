@@ -1,9 +1,11 @@
+#!/bin/bash
+
 # Create virtual environment, if needed
 if [ ! -d ".venv/" ]; then
     echo "Installing virutalenv..."
     python3 -m pip install virtualenv
     echo "Creating .venv/..."
-    python3 -m virtualenv .venv/
+    python3 -m virtualenv -p $(which python3.9) .venv/
 fi
 
 # Activate virtual environment, if one isn't active
@@ -18,16 +20,6 @@ else
 fi
 
 # Install PyPi packages (python requirements)
-pip3 install Django
+pip3 install -Ir requirements.txt
 
-# Initialize Django project
-django-admin startproject simple_app .
-
-# Initialize DB storage
-python3 manage.py migrate
-
-# Create user
-python3 manage.py createsuperuser
-
-# Start server
-python3 manage.py runserver 0.0.0.0:7000
+nohup python3 manage.py runserver 0.0.0.0:4030 & disown
