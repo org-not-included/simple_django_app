@@ -37,5 +37,5 @@ jobs:
         git pull
         export SECRET_KEY="$SECRET_KEY"
         echo "Running setup/run_server.sh:"
-        source setup/run_server.sh & disown
+        source setup/run_server.sh &>/dev/null & disown
         EOT
